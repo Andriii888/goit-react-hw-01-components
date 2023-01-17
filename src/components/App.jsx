@@ -1,5 +1,4 @@
-import userData from '../data/user.json';
-import PropTypes from 'prop-types';
+import user from '../data/user.json';
 import { Profile } from './Profile/Profile';
 import { AppStyles } from './App.styled';
 
@@ -15,17 +14,16 @@ import { TransactionHistory } from './TransactionHistory/TransactionHistory';
 export const App = () => {
   return (
     <AppStyles>
-      <Profile props={userData} />
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
       <Statistics title="Upload stats" stats={data} />
       <FriendList dataList={friends} />
       <TransactionHistory items={transactions} />
     </AppStyles>
   );
-};
-
-App.protoTypes = {
-  userData: PropTypes.array,
-  data: PropTypes.array,
-  friends: PropTypes.array,
-  transactions: PropTypes.array,
 };

@@ -7,8 +7,7 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-export const Statistics = props => {
-  const { title, stats } = props;
+export const Statistics = ({ title, stats }) => {
   const elements = stats.map(({ id, label, percentage }) => (
     <li key={id} style={{ backgroundColor: getRandomHexColor() }}>
       <span>{label}</span>
@@ -25,9 +24,6 @@ export const Statistics = props => {
 };
 
 Statistics.propTypes = {
-  props: PropTypes.object,
+  stats: PropTypes.array,
   title: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
-  percentage: PropTypes.number,
 };

@@ -11,6 +11,12 @@ export const FriendListItemStyles = styled.li`
     height: 10px;
     border-radius: 50%;
     border: 1px solid silver;
+    background-color: ${({ children }) => {
+      if (children[0].key === 'false') {
+        return `red`;
+      }
+      return `green`;
+    }};
   }
   img {
     width: 48px;

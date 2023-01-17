@@ -5,10 +5,27 @@ import { FriendListItem } from './FriendsListElements/FriendListItem';
 export const FriendList = ({ dataList }) => {
   return (
     <FriendsListStyle>
-      <FriendListItem data={dataList} />
+      {dataList.map(d => {
+        const { id, name, avatar, isOnline } = d;
+        return (
+          <FriendListItem
+            key={id}
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+          />
+        );
+      })}
     </FriendsListStyle>
   );
 };
 FriendList.propTypes = {
-  dataList: PropTypes.array,
+  dataList: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      avatar: PropTypes.string,
+      isOnline: PropTypes.bool,
+      id: PropTypes.number,
+    })
+  ),
 };
