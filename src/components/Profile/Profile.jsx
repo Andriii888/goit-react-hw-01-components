@@ -6,10 +6,9 @@ export const Profile = ({
   username,
   tag,
   location,
-  followers,
-  views,
-  likes,
+ stats
 }) => {
+  const{ followers,views,likes,}= stats;
   return (
     <Container>
       <div>
@@ -37,11 +36,14 @@ export const Profile = ({
 };
 
 Profile.protoTypes = {
-  avatar: PropTypes.string,
-  userName: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  followers: PropTypes.number,
-  views: PropTypes.number,
-  likes: PropTypes.number,
+  avatar: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+  views: PropTypes.number.isRequired,
+  likes: PropTypes.number.isRequired,
+  }),
+  
 };
